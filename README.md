@@ -1,1 +1,3 @@
 # ami
+
+add github actions
