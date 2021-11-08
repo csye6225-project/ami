@@ -1,3 +1,4 @@
 # ami
 
-add github actions
+add github actions'
+grading slot
