@@ -41,7 +41,11 @@
                 "wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
                 "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb",
                 "sudo amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c default -s",
-                "mkdir app"
+                "mkdir app",
+                "cd app",
+                "wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem",
+                "openssl x509 -outform der -in rds-combined-ca-bundle.pem -out rds-combined-ca-bundle.der",
+                "keytool -import -alias rds-root -keystore clientkeystore.jks -file rds-combined-ca-bundle.der -storepass 12345678 -noprompt"
             ]
         }
     ]
